@@ -1,0 +1,107 @@
+\documentclass[12pt]{article}
+\usepackage{settings}
+
+%set date to null to hide it in the middle of the titlepage
+\date{}
+
+%load acronyms
+\acsetup{make-links} %make acronyms clickable in text
+\input{abbreviations}
+
+\begin{document}
+\author{}
+
+\pagenumbering{gobble}
+
+%make sure code listings are numbered by secions like in LoF
+\counterwithin{lstlisting}{section}
+
+\input{coverpage}
+
+%include titlepage
+\input{titlepage}
+\onehalfspacing
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\input{independence}
+\input{gender}
+\input{abstract}
+
+%load TOC
+\newpage
+\tableofcontents
+\thispagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+%load list of figures
+\newpage
+\pagenumbering{Roman}
+\phantomsection\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\listoffigures
+\thispagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+%load list of tables
+\newpage
+\phantomsection\addcontentsline{toc}{section}{Tabellenverzeichnis}
+\listoftables
+\thispagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+%load Code listings
+\newpage
+\phantomsection\addcontentsline{toc}{section}{Quellcodeverzeichnis}
+\lstlistoflistings
+\thispagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+%load list of examples, itemized etc. 
+%\newpage
+%\listofexams
+%\thispagestyle{fancy}
+%\fancyhf{}
+%\fancyfoot[R]{\thepage}
+%\renewcommand{\headrulewidth}{0pt}
+
+%print acronyms
+\newpage
+\phantomsection\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+\printacronyms[name=Abkürzungsverzeichnis, template=supertabular]
+
+%set pagestyle for normal textpages
+\clearpage
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+%\fancyhead[R]{\rightmark}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\pagenumbering{arabic}
+
+\input{content/Einleitung}
+\input{content/Besonderheiten}
+
+%load bibliography
+\newpage
+\clearpage
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\phantomsection\printbibliography[heading=bibintoc]
+
+
+\end{document}

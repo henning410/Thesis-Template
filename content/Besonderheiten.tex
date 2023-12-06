@@ -1,0 +1,75 @@
+\newpage
+\section{Anleitung}
+
+\subsection{Aufbau dieser Vorlage}
+    Für eine bessere Übersicht ist diese Vorlage in verschiedene Ordner und Dateien aufgeteilt. Im Hauptordner findest du die Titelseite, die Einstellungen, das Hauptdokument, die Bibliothek, die Selbstständigkeitserklärung, die Gendererklärung, das Abkürzungsverzeichnis sowie das Abstract. Die eigentlichen Textinhalte sind im Ordner \textit{content}. Hier kannst dich organisieren, wie du willst. Ich empfehle es, jedes Kapitel in eine eigene Datei zu schreiben. Alle Dateien werden in der \textit{main.tex} geladen. Wenn du zum Beispiel keine Gendererklärung möchtest, lösche einfach die entsprechende Zeile (Zeile 31). Am wichtigsten ist Zeile 93 und 94. Hier werden die Inhalte geladen. Bilder kommen in den Ordner \textit{images}. Hierbei ist es egal, ob das Bild png, jpeg, pdf etc. ist. Ich empfehle aber PDF, weil dies beim Zoomen die beste Auflösung besitzt. Im Ordner \textit{tables} kannst du Tabellen auslagern. Im Ordner \textit{code} kommt Quellcode rein, den du darstellen und referenzieren möchtest. Die erste Seite ist die Coverseite für den Druck. Wenn du diese nicht brauchst, lösche einfach Zeile 19 in \textit{main.tex}\\\\
+    Bei Fragen oder Anregungen kannst du dich gerne an mich wenden: 
+    \href{mailto:henning1.weise@web.de}{henning1.weise@web.de}
+
+\subsection{Die wichtigsten Befehle}
+    \begin{itemize}
+        \item Kapitel: \verb|\section{blabla}|
+        \item Unterkapitel: \verb|\subsection{blabla}|
+        \item Unterunterkapitel: \verb|\subsubsection{blabla}|
+        \item Seitenumbruch: \verb|\newpage| \textit{(Achtung: Vor jedem neuen Kapitel wird automatisch ein Seitenumbruch eingefügt)}
+        \item neue Zeile: \verb|\\|
+        \item Absatz: \verb|\\\\|
+        \item um Einrückungen zu vermeiden: \verb|\noindent|
+    \end{itemize}
+
+\subsection{Zitate}
+    Um eine Quelle zu zitieren, benutze den Befehl: \verb|\cite{Referenz}|. Um eine Quelle zu zitieren, muss diese im BibTeX-Format in der Datei \textit{literatur.bib} vorhanden sein. Ein korrekt zitiertes Beispiel sieht folgendermaßen aus: \glqq Das ist ein tolles direktes Zitat\grqq{} \cite{Beaufays.2015}. Wie du hier schon siehst, benutzt du \verb|\glqq| um die Anführungszeichen links zu setzen. Benutze \verb|\grqq{}| um die rechten Anführungszeichen zu setzen. Sobald eine Quelle benutzt wird, taucht diese automatisch im Literaturverzeichnis auf. Wird die Quelle nicht benutzt, verschwindet sie wieder, auch wenn sie in der \textit{literatur.bib} weiterhin vorhanden ist. Um den Zitierstil zu ändern, kommentiere in der Datei \textit{settings.sty} Zeile 43+44 ein und kommentiere Zeile 45 und 46 aus.
+
+\subsection{Schriftschnitte}
+    Um ein Wort oder mehrere Kursiv zu schreiben, benutze \verb|\textit{...}|\\
+    Um ein Wort fett zu schreiben, benutze \verb|\textbf{...}|
+
+\subsection{Abkürzungen}
+    Abkürzungen müssen in der Datei \textit{abbreviations.tex} definiert werden. Schaue am besten dort hinein für Beispiele. Um eine Abkürzung zu benutzen, schreibe den folgenden Befehl: \verb|\ac{Referenz}|. Wird die Abkürzung zum ersten Mal benutzt, schreibt LaTeX automatisch das Wort aus und führt die Abkürzung ein. Alle folgenden werden abgekürzt. Außerdem sind alle Abkürzungen anklickbar und der Leser landet im Abkürzungsverzeichnis. Ein Beispiel für eine Abkürzung ist \ac{HTTPS}. Mithilfe von \ac{HTTPS} können blabbla.... Nicht benutzte Abkürzungen werden auch nicht aufgelistet. Um eine Abkürzung in Plural zu benutzen, schreibe den Befehl: \verb|\acp{Referenz}|. Das Abkürzungsverzeichnis ist alphabetisch sortiert.
+
+\subsection{Bilder}
+    Um ein Bild mittig einzufügen, benutze folgenden Befehl:\\
+    \verb|\imageinput{true/false}{Image.pdf}{Bildbeschreibung}{Größe}{optional: Quelle}|\\
+    Der erste Parameter wird dabei benutzt, um ein Rand um das Bild zu setzen oder nicht. Der zweite Parameter ist der Name des Bildes im Ordner \textit{images}. Anschließend folgt die Bildbeschreibung und optional eine Quellenangabe. Ein Beispiel für ein Bild sieht folgendermaßen aus:
+    \imageinput{false}{Umsatz-Spracherkennung.pdf}{Beispieldiagramm}{0.95}{Quelle: in Anlehnung \cite{Statista.Umsatz}}
+    Am besten sind Bilder als PDF, weil diese meist die höchste Auflösung besitzen. Jedes Bild das benutzt wird, muss korrekt referenziert werden. Dies passiert über den Befehl: \verb|\autoref{Bildbeschreibung}|. Eine korrekte Referenz zu obigem Bild könnte folgendermaßen aussehen: In \autoref{Beispieldiagramm} ist der Umsatz von ...\\
+    Abbildungen werden primär nach Kapitel nummeriert. Deshalb besitzt dieses Bild, auch wenn es das erste ist, die führende Nummer 2. Die folgende Nummer ist aufsteigend nach Bildern.
+
+\newpage
+\subsection{Quellcode}
+    Damit Quellcode eingefügt werden kann, muss zuerst eine entsprechende Datei im Ordner \textit{code} angelegt werden. Diese Datei enthält deinen Quellcode. Zum Einbinden des Quellcode benutze den Befehl \verb|\codeinput{Sprache}{Beschreibung}{Datei}|. Ein Beispiel für eingebunden Quellcode könnte so aussehen:
+    \codeinput{JavaScript}{Beispielcode in JavaScript}{deepgram.js}
+    Auch hier kannst du gewohnt mit \verb|\autoref{Beschreibung}| auf den Quellcode verweisen. Willst du das Color-Highlighting anpassen, so schaue ans Ende der Datei \textit{settings.sty}. In Zeile 237 bzw. 260 werden zwei neue Sprachen definiert. Du kannst hier eigene hinzufügen oder die aktuellen auch anpassen. Eingebundener Quellcode wird automatisch im Quellcodeverzeichnis hinzugefügt.
+
+\subsection{Tabellen}
+    Tabellen können ebenfalls eingebunden werden und werden automatisch im Tabellenverzeichnis hinzugefügt. Ein Beispiel für eine Tabelle:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|}
+            \textbf{Test}   &   \textbf{Noch ein Test} \\
+            1               &   ok\\
+            2               &   ok\\
+            3               &   ok\\
+        \end{tabular}
+        \caption{Beispieltabelle mit Beschreibung}
+        \label{Beispieltabelle mit Beschreibung}
+    \end{table}
+    \noindent Auf diese Tabelle kann ebenfalls mit \verb|\autoref{Beschreibung}| verlinkt werden. Dies sieht so aus: In \autoref{Beispieltabelle mit Beschreibung} ist ... zu sehen. Tabellen können auch für eine bessere Übersicht in externe Dateien ausgelagert werden. Hierfür steht der Ordner \textit{tables} zur Verfügung. Um eine Tabelle aus einer Datei zu importieren, benutze den Befehl \verb|\input{tables/Name}|. Wie du in \autoref{Schönere Tabelle} siehst, kann eine Tabelle auch beliebig gestaltet werden.
+    \input{tables/test}
+    \noindent Um schnell und einfach Tabellen zu generieren, benutze am besten einen Online Generator wie diesen: \href{https://www.tablesgenerator.com/}{https://www.tablesgenerator.com/}
+
+\subsection{Kommentare in der PDF}
+    Um in deiner Arbeit besser verfolgen zu können, welche Abschnitte bereits fertig sind oder noch überarbeitet werden müssen, habe ich dafür eigene Befehle definiert: \\
+    \verb|\approved|\\
+    \verb|\approve|\\
+    \verb|\improvement{Beschreibung}|\\\
+    \verb|\toDo{Beschreibung}|\\
+    Um am Ende nicht mit viel Aufwand alle Kommentare entfernen zu müssen, können alle Kommentare durch Setzen des Parameters \textit{disable} in Zeile 33 in \textit{settings.sty} versteckt werden.\\\\
+    Dies ist ein fertiger Abschnitt. 
+    \approved
+    \noindent Das ist ein Abschnitt, der nur noch Kontrolle gelesen werden muss.
+    \approve
+    \noindent Das ist ein Abschnitt, wo nur noch kleine Änderungen gemacht werden müssen.
+    \improvement{Kleine Anpassungen nötig}
+    \noindent Das ist ein Abschnitt, wo es noch echt viel zu tun gibt.
+    \toDo{Hier muss noch viel geschrieben werden, XY Recherchiert werden...}

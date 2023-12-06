@@ -1,0 +1,39 @@
+\noindent\rule[1ex]{\textwidth}{1pt}
+    \vspace*{10pt}
+    {\let\newpage\relax}
+    
+    %logo in upper right corner
+    \begin{tikzpicture}[remember picture,overlay]
+       \node[anchor=north east,inner xsep=60pt, inner ysep=20pt] at (current page.north east)
+                  {\includegraphics[width=5cm]{images/HS-Logo.png}};
+    \end{tikzpicture}
+    
+\begin{center}
+\thispagestyle{empty}
+    \Large{\textbf{LaTeX Vorlage zum Schreiben von wissenschaftlichen Arbeiten, z. B. Abschlussarbeiten wie Bachelor- oder Masterthesis}}
+    
+    \vspace{6ex}
+    
+    %optional include company logo here
+        %\includegraphics[width=6cm]{images/HS-Logo.png}\\
+        %\vspace{1ex}
+        \begin{Large}  
+            \textbf{Bachelorthesis}\\
+            \vspace{6ex}
+            im Studiengang\\
+            Softwaretechnik und Medieninformatik\\
+            der Fakultät Informationstechnik\\
+            
+            %\vspace{5ex}
+            %\textbf{Anschrift des Praktikumsbetriebes}\\
+            %Firmenname\\
+            %Straße und Hausnummer\\
+            %Postleitzahl und Ort\\
+            
+            \vspace{8ex}
+            vorgelegt von\\
+            \begin{tabular}{l}
+                \Large{\textbf{Henning Weise}}
+            \end{tabular}
+        \end{Large}
+\end{center}
